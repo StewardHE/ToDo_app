@@ -9,7 +9,7 @@ module.exports.getToDo = async(req, res) => {
     res.send(toDo)
 }
 
-// save the data function
+// Function to Save or add a ToDo 
 module.exports.saveToDo = async (req, res) => {
     const { text } = req.body
     ToDoModel
@@ -21,3 +21,21 @@ module.exports.saveToDo = async (req, res) => {
     })
     
 }
+
+// Function to Update a ToDo 
+module.exports.updateToDo = async (req, res) => {
+    const {_id, text} = req.body
+    ToDoModel.findByIdAndUpdate(_id, {text})
+    .then(() => res.set(201).send("Updated successfully"))
+    .catch((err) => console.log(err))
+
+}   
+
+// Function to Delete a ToDo 
+module.exports.deleteToDo = async (req, res) => {
+    const {_id, text} = req.body
+    ToDoModel.findByIdAndDelete(_id)
+    .then(() => res.set(201).send("Deleted successfully"))
+    .catch((err) => console.log(err))
+
+}   
