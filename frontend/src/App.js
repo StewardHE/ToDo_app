@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>ToDo App</h1>
+        <h1><span>Bryan's</span> ToDo App</h1>
 
         <div className="top">
           <input 
